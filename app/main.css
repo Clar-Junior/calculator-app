@@ -1,0 +1,114 @@
+// reset css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #5F85DB, #0b253f);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calculator{
+    background: linear-gradient(to bottom, #353941, #26282B);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(1, 1, 1, 0.8);
+    width: 300px;
+    height: 500px;
+}
+
+.result {
+    background: #1E1E1E;
+    color: #5F85DB;
+    font-size: 3em;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: right;
+    letter-spacing: 2px;
+    height: 60px;
+}
+.btns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+.btns button {
+    background: linear-gradient(to bottom, #535353, #323a3081);
+    font-size: 1.5em;
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(1, 1, 1, 0.25);
+    cursor: pointer;
+    
+    text-shadow: 0 2px 4px rgba(1, 1, 1, 0.8);
+}
+.btn-num{
+    color: #fff;
+}
+.btn-op {
+    color: #5F85DB;
+}
+
+#btn-cls{
+    color: #90B8F8;
+    grid-column: span 2;
+}
+.btn-del{
+    color: #e0534e;
+    grid-column: span 1;
+}
+.btn-res{
+    color: #e0534e;
+    grid-column: span 2;
+    
+}
+#btn-plus {
+    grid-row: span 2;
+}
+
+
+
+
+
+footer {
+    position: absolute;
+    bottom: 5px;
+}
+footer > p , a {
+    text-decoration: none;
+    color: #afafaf;
+    font-size: 0.9em;
+    text-shadow: 0 2px 4px rgba(1, 1, 1, 0.8);
+}
+.foot-gh {
+    //display: none;
+    opacity: 0.0;
+    background: #1E1E1E;
+    box-shadow: 0 4px 8px rgba(1, 1, 1, 0.8);
+    border-radius: 10px;
+    position: absolute;
+    left: 150px;
+    top: 10px;
+    transition: opacity 0.3s ease;
+    width: 90px;
+    padding: 5px 10px;
+    
+}
+footer > p:hover , a:hover {
+    color: #90B8F8;
+    transition: color 0.3s ease;
+}
+a:hover .foot-gh {
+    opacity: 1.0;
+    color: #afafaf;
+    transition: opacity 0.3s ease;
+}

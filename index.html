@@ -1,20 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator App</title>
-</head>
-<body>
-    /* Semantic HTML */
-    <main>
-        <section>
-            <article>result</article>
-        </section>
-        <section>
-            <article>buttons</article>
-        </section>
-    </main>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./app/main.css" />
+        <title>Calculator App</title>
+    </head>
+    <body>
+        <!-- Semantic HTML -->
+        <main class="calculator">
+            <section>
+                <article class="result"></article>
+            </section>
+            <section>
+                <article class="btns">
+                    <button class="btn-cls" id="btn-cls">C</button>
+                    <button class="btn-del" id="btn-del">Del</button>
+                    
+                    
+                    <button class="btn-op">/</button>
+
+                    <button class="btn-num">7</button>
+                    <button class="btn-num">8</button>
+                    <button class="btn-num">9</button>
+                    <button class="btn-op">*</button>
+                    <button class="btn-num">4</button>
+                    <button class="btn-num">5</button>
+                    <button class="btn-num">6</button>
+                    <button class="btn-op">-</button>
+                    <button class="btn-num">1</button>
+                    <button class="btn-num">2</button>
+                    <button class="btn-num">3</button>
+                    <button class="btn-op" id="btn-plus">+</button>
+                    <button class="btn-num">0</button>
+                    
+                    <button class="btn-res" id="btn-res">=</button>
+                </article>
+            </section>
+        </main>
+        <footer>
+            <p>Created by <a href="https://github.com/Clar-Junior">Clar-Junior<span class="foot-gh">visit my GitHub</span></a></p>
+        </footer>
+
+        <script src="./app/main.js"></script>
+    </body>
 </html>
