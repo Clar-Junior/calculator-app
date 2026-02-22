@@ -37,12 +37,26 @@ delBtn.addEventListener('click', () => {
 
 buttons.forEach(button => { 
     button.addEventListener('click', () => {
-        calc += button.textContent;
         if(button.textContent.match(/[0-9]/) && !operator) {
-            num1 += button.textContent;
+            if(num1.length > 7) {
+                showResult.textContent = 'Error: Too many digits';
+                num1 = num1.slice(0, 7);
+                calc = num1;
+                }
+            else {
+                num1 += button.textContent;
+                calc += button.textContent;
+            }
         }
         else if(button.textContent.match(/[0-9]/) && operator) {
-            num2 += button.textContent;
+            if (num2.length > 7) {
+                showResult.textContent = "Error: Too many digits";
+                num2 = num2.slice(0, 7);
+                calc = num1 + operator + num2;
+            } else {
+                num2 += button.textContent;
+                calc += button.textContent;
+            }
         }
         showResult.textContent = calc;
     });
@@ -65,19 +79,40 @@ operatorsBtns.forEach(button => {
 
 
 resultBtn.addEventListener('click', () => {
-    if(num1 && operator && num2) {
+    if(((num1 && operator) || num2)) {
         let result;
         switch(operator) {
             case '+':
+                if(!num2) {
+                    showResult.textContent = Number(num1) + Number(num1);
+                    num1 = showResult.textContent;
+                    return;
+                }
+                else {
                 showResult.textContent = Number(num1) + Number(num2);
                 console.log(showResult.textContent);
                 break;
+            }
             case '-':
-                showResult.textContent = Number(num1) - Number(num2);
-                break;
+                if (!num2) {
+                    showResult.textContent = Number(num1) - Number(num1);
+                    num1 = showResult.textContent;
+                    return;
+                }
+                else {
+                    showResult.textContent = Number(num1) - Number(num2);
+                    break;
+                }
             case '*':
-                showResult.textContent = Number(num1) * Number(num2);
-                break;
+                if (!num2) {
+                    showResult.textContent = Number(num1) * Number(num1);
+                    num1 = showResult.textContent;
+                    return;
+                }
+                else {
+                    showResult.textContent = Number(num1) * Number(num2);
+                    break;
+                }
             case '/':
                 if(num2 === '0') {
                     
@@ -94,6 +129,11 @@ resultBtn.addEventListener('click', () => {
                         showResult.style.fontSize = '3em';
                         showResult.textContent = '';
                     }, 2000);
+                }
+                else if (!num2 && Number(num1) >= 0) {
+                    showResult.textContent = Number(num1) / Number(num1);
+                    num1 = showResult.textContent;
+                    return;
                 }
                 else{
                     showResult.textContent = Number(num1) / Number(num2);
